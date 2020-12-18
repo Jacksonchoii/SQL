@@ -67,11 +67,11 @@ from employees;
 select  department_id,
         round(avg(salary),0) "평균임금",
         min(salary) "최저임금",
-        round(agv(salary)-min(salary),0) "임금편차"
+        round(avg(salary)-min(salary),0) "임금편차"
 from employees
 group by department_id
 having avg(salary)-min(salary) < 2000
-orderby avg(salary)-min(salary) desc;
+order by avg(salary)-min(salary) desc;
 
 /*문제8.
 업무(JOBS)별로 최고임금과 최저임금의 차이를 출력해보세요.
