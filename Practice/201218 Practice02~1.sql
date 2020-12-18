@@ -78,10 +78,13 @@ order by avg(salary)-min(salary) desc;
 차이를 확인할 수 있도록 내림차순으로 정렬하세요? 
 */
 select  job_id,
-        max(salary)-min(salary)
+        max(salary),
+        min(salary),
+        max(salary)-min(salary) "최고임금-최저임금"
 from employees
 group by job_id
-order by max(salary)-min(salary) desc;
+order by "최고임금-최저임금" desc; --실행순서 더 생각해보기
+--FROM - WHERE - GROUP BY - HAVING - SELECT - ORDER BY 순서로
 
 /*
 문제9
@@ -89,6 +92,15 @@ order by max(salary)-min(salary) desc;
 출력은 관리자별로 평균급여가 5000이상 중에 평균급여 최소급여 최대급여를 출력합니다.
 평균급여의 내림차순으로 정렬하고 평균급여는 소수점 첫째짜리에서 반올림 하여 출력합니다.
 */
+select  manager_id,
+        round(avg(salary),0) "평균임금",
+        min(salary) "최소급여",
+        max(salary) "최대급여"
+from employees
+group by manager_id, hire_date
+having round(avg(salary),0) >= 5000
+and hire_date >= '05.01.01'
+order by round(avg(salary),0) desc;
 
 /*
 문제10
