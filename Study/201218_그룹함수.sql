@@ -96,7 +96,7 @@ group by department_id
 having sum(salary) >= 20000
 and department_id = 100;
 
---FROM -> WHERE -> GROUP BY -> HAVING -> ORDER BY -> SELECT 순으로 진행!!
+--FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY 순으로 진행!!
 
 /*    case ~ end 문    */
 ----------------------------------------
